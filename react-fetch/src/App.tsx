@@ -1,10 +1,19 @@
 import { Component } from 'react';
 import './App.css';
 
-class App extends Component <{}, {}> {
+interface IAppState {
+  name: string;
+  characters: {}[];
+}
+
+class App extends Component <{}, IAppState> {
 
   constructor(props: {}) {
     super(props) 
+    this.state = {
+      name: 'Stacey',
+      characters: ["Joe"]
+    }
   } 
 
   render() {
