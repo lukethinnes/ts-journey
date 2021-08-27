@@ -14,25 +14,26 @@ class App extends Component <{}, IAppState> {
     super(props) 
     this.state = {
       name: 'Stacey',
-      characters: []
+      characters: [],
     }
   } 
 
 componentDidMount() {
-  fetch('https://rickandmortyapi.com/character/api')
+  fetch('https://rickandmortyapi.com/api/character')
     .then(response => response.json())
     .then(({ results }) => this.setState({ characters: results as ICharacter[] }))
 }
 
 showCharacters = () => {
   return this.state.characters.map(character => {
-    return <CharacterCard character={character} />
+    return <CharacterCard key={character.id} character={character} />
   })
 }
   render() {
     return (
       <div className="App">
         <h1>Welcome {this.state.name}</h1>
+        {this.showCharacters() }
       </div>
     );
   }

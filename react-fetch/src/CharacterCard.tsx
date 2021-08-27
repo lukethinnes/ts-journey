@@ -8,7 +8,7 @@ interface ICharacterCardProps {
 const CharacterCard: React.FC<ICharacterCardProps> = props => {
   return (
     <div className='character-card'>
-
+      <h3>{props.character.name}</h3>
     </div>
   )
 }
